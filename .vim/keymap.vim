@@ -74,11 +74,11 @@ map <F8> :%s/^\(.*\)$/sql.append("\1 ");/g<cr>
 
 "<F10> 
 fu! SaveSess()
-    execute 'mksession! ~/.vim/gitignored/session.vim'
+    execute 'mksession! ~/dotfiles/.vim/gitignored/session.vim'
 endfunction
 
 fu! RestoreSess()
-execute 'so ~/.vim/gitignored/session.vim'
+execute 'so ~/dotfiles/.vim/gitignored/session.vim'
 if bufexists(1)
     for l in range(1, bufnr('$'))
         if bufwinnr(l) == -1
