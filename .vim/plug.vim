@@ -52,7 +52,7 @@ Plug 'mattn/emmet-vim', { 'for': ['html','jsp'] }
   \  },
   \}
 
-Plug 'vimcn/vimcdoc'
+"Plug 'vimcn/vimcdoc'
 
 " colorschemes
 Plug 'altercation/vim-colors-solarized' 

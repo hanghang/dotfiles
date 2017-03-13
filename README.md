@@ -1,5 +1,6 @@
 # dotfiles
 
-usage
 
-add  `source ~/dotfiles/.vimrc`  to ~/.vimrc
+### Installation
+
+`curl -sfL https://raw.githubusercontent.com/hanghang/dotfiles/master/bin/installer.sh | sh`
