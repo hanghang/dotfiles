@@ -6,6 +6,12 @@ source ~/dotfiles/.vim/plug.vim
 source ~/dotfiles/.vim/keymap.vim
 "---------------- keymap -----------------
 
+"--------------- playground --------------
+" could be any thing, for test purpose
+
+
+"--------------- playground --------------
+
 "--{{{--------- ui,tabs,enc --------------
 " --- every one likes ---
 set nocompatible              " be vim

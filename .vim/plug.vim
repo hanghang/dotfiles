@@ -11,12 +11,18 @@ Plug 'Shougo/neocomplete'
 Plug 'tpope/vim-fugitive'		" git integration
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/dbext.vim'
+Plug 'tyru/open-browser.vim'
 Plug 'thinca/vim-quickrun'
 let g:quickrun_config = {
 \   "_" : {
 \       "outputter" : "message",
 \   },
 \}
+let g:quickrun_config.markdown = {
+      \ 'command': 'md2min',
+	  \ 'exec': '%c -output stdout %o %s %a',
+      \ 'outputter': 'browser'
+      \ }
 let g:quickrun_no_default_key_mappings = 1
 
 "Plug 'minibufexpl.vim'
@@ -53,6 +59,10 @@ Plug 'mattn/emmet-vim', { 'for': ['html','jsp'] }
   \}
 
 "Plug 'vimcn/vimcdoc'
+
+" use vim-quickrun instead
+"Plug 'iamcco/markdown-preview.vim'    " markdown support requires py
+
 
 " colorschemes
 Plug 'altercation/vim-colors-solarized' 
