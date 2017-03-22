@@ -76,7 +76,7 @@ if has('multi_byte_ime')
 endif
 
 
-if has("gui_running")
+if has("win32") && has("gui_running")
     set clipboard=unnamed
     winpos 400 1
     se lines=45
