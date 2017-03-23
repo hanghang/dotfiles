@@ -1,3 +1,4 @@
+if !has('win32unix')
 "---------------- plugin -----------------
 source ~/dotfiles/.vim/plug.vim
 "---------------- plugin -----------------
@@ -8,9 +9,75 @@ source ~/dotfiles/.vim/keymap.vim
 
 "--------------- playground --------------
 " could be any thing, for test purpose
-
-
+"
 "--------------- playground --------------
+
+"-------------- plugin opts --------------
+if has('win32')
+	let g:vimwiki_list = [{'path': 'U:/private/vimwiki/'}]  " sync to cloud
+elseif has('macunix') || has('gui_macvim')
+	let g:vimwiki_list = [{'path': '/Volumes/private/vimwiki/'}] 
+elseif has('unix')
+	let g:vimwiki_list = [{'path': '/Volumes/private/vimwiki/'}]
+endif
+
+let g:quickrun_config = {
+\   "_" : {
+\       "outputter" : "message",
+\   },
+\}
+let g:quickrun_config.markdown = {
+\ 'command': 'md2min',
+\ 'exec': '%c -output stdout %o %s %a',
+\ 'outputter': 'browser'
+\ }
+let g:quickrun_no_default_key_mappings = 1
+let g:syntastic_error_symbol='>>'
+let g:syntastic_warning_symbol='>'
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=0
+let g:syntastic_enable_highlighting=1
+
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=4
+let g:indent_guides_guide_size=1
+
+let g:user_emmet_settings = {
+\  'php' : {
+\    'extends' : 'html',
+\    'filters' : 'c',
+\  },
+\  'jsp' : {
+\    'extends' : 'html',
+\  },
+\  'xml' : {
+\    'extends' : 'html',
+\  },
+\  'haml' : {
+\    'extends' : 'html',
+\  },
+\}
+"-------------- plugin opts --------------
+
+
+"--------------- autocmd -----------------
+"autocmd BufNewFile * silent! 0r $VIM/vimfiles/templates/%:e.tpl
+"autocmd BufWritePre *.go :Fmt
+"autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+source ~/dotfiles/.vim/gitignored/dbconf.vim
+" example
+" let g:dbext_default_profile = 'usual'
+" let g:dbext_default_profile_usual       = 'type=MYSQL:user=root:passwd=:host=localhost:dbname=test'
+" let g:dbext_default_profile_localhost   = 'type=ORA:user=scott:passwd=tiger'
+" let g:dbext_default_profile_PG = 'type=PGSQL:user=postgres:user=postgres:passwd=postgres:host=localhost:dbname=test'
+
+"--{{{--------- abbr----------------------
+" iabbrev <buffer> fori for (i = 0 ; i < var ; i++)<cr>\{<cr> <cr>\}<up><C-T>
+"--}}}--------- abbr----------------------
+
+
+endif
 
 "--{{{--------- ui,tabs,enc --------------
 " --- every one likes ---
@@ -35,6 +102,9 @@ set history=500
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
+"thx to
+"https://dougblack.io/words/a-good-vimrc.html
+"https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
 " --- every one likes ---
 
 colo evening
@@ -94,31 +164,4 @@ syntax on
 filetype indent on
 " --- }}} ---
 
-
-"--{{{--------- abbr----------------------
-" iabbrev <buffer> fori for (i = 0 ; i < var ; i++)<cr>\{<cr> <cr>\}<up><C-T>
-"--}}}--------- abbr----------------------
-
-
-"--------------- autocmd -----------------
-"autocmd BufNewFile * silent! 0r $VIM/vimfiles/templates/%:e.tpl
-"autocmd BufWritePre *.go :Fmt
-"autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
-
-source ~/dotfiles/.vim/gitignored/dbconf.vim
-
-" example
-" let g:dbext_default_profile = 'usual'
-" let g:dbext_default_profile_usual       = 'type=MYSQL:user=root:passwd=:host=localhost:dbname=test'
-" let g:dbext_default_profile_localhost   = 'type=ORA:user=scott:passwd=tiger'
-" let g:dbext_default_profile_PG = 'type=PGSQL:user=postgres:user=postgres:passwd=postgres:host=localhost:dbname=test'
-
-
-
-"thx to
-"https://dougblack.io/words/a-good-vimrc.html
-"https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
 " vim:fdm=marker:
-
-
