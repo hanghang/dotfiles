@@ -49,7 +49,7 @@ map <F4> :TagbarToggle<cr>
 
 
 if has("gui_running")
-	map <F5> :tabnew<cr>:e U:/private/notes/personal.note.txt <cr>
+	map <F5> :tabnew<cr>:e U:/private/notes/personal_note.txt <cr>
 	map <C-F5> :tabnew<cr>:e U:/private/notes/1_work_journal.txt <cr>
 endif
 
