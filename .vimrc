@@ -26,6 +26,11 @@ let g:quickrun_config = {
 \       "outputter" : "message",
 \   },
 \}
+let g:quickrun_config.vimwiki = {
+\   'command': ':Vimwiki2HTML',
+\   'exec': '%C',
+\   'runner': 'vimscript',
+\ }
 let g:quickrun_config.markdown = {
 \ 'command': 'md2min',
 \ 'exec': '%c -output stdout %o %s %a',
