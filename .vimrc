@@ -15,14 +15,21 @@ source ~/dotfiles/.vim/keymap.vim
 "-------------- plugin opts --------------
 
 
+let wiki = {}
+"let wiki.nested_syntaxes = {'python': 'python','java': 'java','c++': 'cpp'}
 if has('win32')
-	let g:vimwiki_list = [{'path': 'U:/private/vimwiki/', 'path_html': 'D:/wiki_html/'},
-						\ {'path': '~/my_docs/', 'auto_export': 1}]  " sync to cloud
+	"let g:vimwiki_list = [{'path': 'U:/private/vimwiki/', 'path_html': 'D:/wiki_html/', 'auto_export': 1}]
+	let wiki.path = 'U:/private/vimwiki/'
+	let wiki.path_html= 'D:/wiki_html/'
+	let wiki.auto_export= 1
 elseif has('macunix') || has('gui_macvim')
 	let g:vimwiki_list = [{'path': '/Volumes/private/vimwiki/'}] 
+	let wiki.path = '~/my_wiki/'
 elseif has('unix')
 	let g:vimwiki_list = [{'path': '/Volumes/private/vimwiki/'}]
+	let wiki.path = '~/my_wiki/'
 endif
+let g:vimwiki_list = [wiki]
 
 let g:quickrun_config = {
 \   "_" : {
@@ -145,9 +152,8 @@ set cindent
 "set cursorline
 
 
-
-set encoding=utf-8
-set fencs=utf8,gbk,gb2312,gb18030,cp936
+"enc fenc
+set encoding=utf-8 fileencodings=utf8,cp932,gbk,gb18030
 
 set completeopt=menu,longest
 

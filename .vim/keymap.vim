@@ -28,7 +28,7 @@ function InputToday()
     let s:currline = line(".")
     call append(s:currline-1 , strftime("%Y-%m-%d"))
 endfunction
-:imap <leader>d mz:execute InputToday() `zkA
+:imap <leader>d mz:execute InputToday() `zA
 "function DiffWithFileFromDisk()
 "    let filename=expand('%')
 "    let diffname = filename.'.difftempfile'
