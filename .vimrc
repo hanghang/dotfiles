@@ -16,9 +16,9 @@ source ~/dotfiles/.vim/keymap.vim
 if has('win32')
 	let g:vimwiki_list = [{'path': 'U:/private/vimwiki/'}]  " sync to cloud
 elseif has('macunix') || has('gui_macvim')
-	let g:vimwiki_list = [{'path': '/Volumes/private/vimwiki/'}] 
+	let g:vimwiki_list = [{'path': '~/crypto/private/vimwiki/'}] 
 elseif has('unix')
-	let g:vimwiki_list = [{'path': '/Volumes/private/vimwiki/'}]
+	let g:vimwiki_list = [{'path': '~/private/vimwiki/'}]
 endif
 
 let g:quickrun_config = {
@@ -159,6 +159,8 @@ if has("win32") && has("gui_running")
     set dir=d:/
     set go=rmb 
     set gfn=Source\ Code\ Pro:h12
+elseif has('macunix') || has('gui_macvim')
+	set dir=~/
 endif
 
 if version >= 603

@@ -48,9 +48,12 @@ map <F4> :TagbarToggle<cr>
 "<F5> - open myNotes (GVIM on MS Windows)
 
 
-if has("gui_running")
+if has('win32')
 	map <F5> :tabnew<cr>:e U:/private/notes/personal_note.txt <cr>
 	map <C-F5> :tabnew<cr>:e U:/private/notes/1_work_journal.txt <cr>
+elseif has('macunix') || has('gui_macvim')
+	map <F5> :tabnew<cr>:e ~/crypto/private/notes/personal_note.txt <cr>
+	map <C-F5> :tabnew<cr>:e ~/crypto/private/notes/1_work_journal.txt <cr>
 endif
 
 
