@@ -13,13 +13,21 @@ source ~/dotfiles/.vim/keymap.vim
 "--------------- playground --------------
 
 "-------------- plugin opts --------------
+
+
+let wiki = {}
+"let wiki.nested_syntaxes = {'python': 'python','java': 'java','c++': 'cpp'}
 if has('win32')
-	let g:vimwiki_list = [{'path': 'U:/private/vimwiki/'}]  " sync to cloud
+	"let g:vimwiki_list = [{'path': 'U:/private/vimwiki/', 'path_html': 'D:/wiki_html/', 'auto_export': 1}]
+	let wiki.path = 'U:/private/vimwiki/'
+	let wiki.path_html= 'D:/wiki_html/'
+	let wiki.auto_export= 1
 elseif has('macunix') || has('gui_macvim')
 	let g:vimwiki_list = [{'path': '~/crypto/private/vimwiki/'}] 
 elseif has('unix')
 	let g:vimwiki_list = [{'path': '~/private/vimwiki/'}]
 endif
+let g:vimwiki_list = [wiki]
 
 let g:quickrun_config = {
 \   "_" : {
@@ -62,6 +70,7 @@ let g:user_emmet_settings = {
 \    'extends' : 'html',
 \  },
 \}
+
 "-------------- plugin opts --------------
 
 
@@ -140,8 +149,9 @@ set cindent
 "set textwidth=70 " nice for plain text 
 "set cursorline
 
-set encoding=utf-8
-set fencs=utf8,gbk,gb2312,gb18030,cp936
+
+"enc fenc
+set encoding=utf-8 fileencodings=utf8,cp932,gbk,gb18030
 
 set completeopt=menu,longest
 
@@ -150,12 +160,11 @@ if has('multi_byte_ime')
     highlight CursorIM guifg=NONE guibg=LightRed
 endif
 
-
 if has("win32") && has("gui_running")
     set clipboard=unnamed
     winpos 400 1
     se lines=45
-    se columns=130
+    se columns=160
     set dir=d:/
     set go=rmb 
     set gfn=Source\ Code\ Pro:h12
@@ -170,5 +179,6 @@ endif
 syntax on
 filetype indent on
 " --- }}} ---
+set conceallevel=0  " Don't conceal JSON syntax 
 
 " vim:fdm=marker:

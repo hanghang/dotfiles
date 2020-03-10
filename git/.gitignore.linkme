@@ -1,0 +1,4 @@
+gitignored
+.DS_Store
+*~
+*.swp

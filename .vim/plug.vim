@@ -20,7 +20,10 @@ Plug 'thinca/vim-quickrun'
 Plug 'scrooloose/syntastic', {'for':['clojure']}
 
 Plug 'Yggdroot/indentLine'
-:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+" indentLine will overwrite  "concealcursor" and "conceallevel" with default value:
+let g:indentLine_enabled = 0
+
+nmap <silent> <leader>i :IndentLinesToggle<CR>
 
 Plug 'mattn/emmet-vim', { 'for': ['html','jsp'] }
 "Plug 'vimcn/vimcdoc'
@@ -37,6 +40,7 @@ Plug 'sjl/badwolf'
 "Plug 'Raimondi/delimitMate' "auto-completion for quotes, parens, brackets, etc. 
 "Plug 'kshenoy/vim-signature' "Plugin to toggle, display and navigate marks
 "
+Plug 'tpope/vim-commentary'
 
 " Initialize plugin system
 call plug#end()
