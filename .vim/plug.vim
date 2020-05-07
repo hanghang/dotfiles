@@ -4,6 +4,7 @@ call plug#begin('~/dotfiles/.vim/gitignored/plugged')
 " Make sure you use single quotes
 
 Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'keith/swift.vim', {'for': 'swift'}
 Plug 'nsf/gocode', {'for': ['go']}
 Plug 'kien/ctrlp.vim'			" fast search 
 Plug 'Shougo/vimshell'
@@ -41,6 +42,9 @@ Plug 'sjl/badwolf'
 "Plug 'kshenoy/vim-signature' "Plugin to toggle, display and navigate marks
 "
 Plug 'tpope/vim-commentary'
+
+
+
 
 " Initialize plugin system
 call plug#end()

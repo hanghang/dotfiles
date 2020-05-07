@@ -49,8 +49,12 @@ map <F4> :TagbarToggle<cr>
 
 
 if has("gui_running")
-	map <F5> :tabnew<cr>:e U:/private/notes/personal_note.txt <cr>
-	map <C-F5> :tabnew<cr>:e U:/private/notes/1_work_journal.txt <cr>
+	if has('win32')
+		map <F5> :tabnew<cr>:e U:/private/notes/personal_note.txt <cr>
+		map <C-F5> :tabnew<cr>:e U:/private/notes/1_work_journal.txt <cr>
+	elseif has('macunix') || has('gui_macvim')
+		map <F5> :tabnew<cr>:e /Volumes/crypto/private/vimwiki/notes/diary.wiki <cr>
+	endif
 endif
 
 
