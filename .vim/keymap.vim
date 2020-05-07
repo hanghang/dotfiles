@@ -13,7 +13,7 @@ nmap <F2> :QuickRun<CR>
 
 "<F3>
 "--{{{-------<F3>insert mode -  add FileHeader ----------
-function FileHeading()
+function! FileHeading()
     let s:line=line(".")
     call setline(s:line ,"// *************************************************")
     call append(s:line,  "// Description - ")
@@ -24,11 +24,6 @@ function FileHeading()
 endfunction
 imap <C-F3>  mz:execute FileHeading()`zjA
 "--}}}---------------------------------------------------
-function InputToday()
-    let s:currline = line(".")
-    call append(s:currline-1 , strftime("%Y-%m-%d"))
-endfunction
-:imap <leader>d mz:execute InputToday() `zA
 "function DiffWithFileFromDisk()
 "    let filename=expand('%')
 "    let diffname = filename.'.difftempfile'
@@ -50,8 +45,9 @@ map <F4> :TagbarToggle<cr>
 
 if has("gui_running")
 	if has('win32')
-		map <F5> :tabnew<cr>:e U:/private/notes/personal_note.txt <cr>
-		map <C-F5> :tabnew<cr>:e U:/private/notes/1_work_journal.txt <cr>
+		map <F5> :tabnew<cr>:e u:/private/vimwiki/notes/diary.wiki <cr>
+		map <C-F5> :tabnew<cr>:e U:/private/notes/personal_note.txt <cr>
+		map <S-F5> :tabnew<cr>:e U:/private/notes/1_work_journal.txt <cr>
 	elseif has('macunix') || has('gui_macvim')
 		map <F5> :tabnew<cr>:e /Volumes/crypto/private/vimwiki/notes/diary.wiki <cr>
 	endif
@@ -122,12 +118,21 @@ map <M-left> :tabp<CR>
 "<Meta>+<RIGHT> - to next tab
 map<M-right> :tabn<CR>
 
-"- update current document
-noremap  zz		:up<CR>
+"- update current document   " use autosave plugin instead
+"noremap  zz		:up<CR>
+
 
 nmap <leader>l :set list!<CR>
 nmap <leader>w :set wrap!<CR>
+function! InputToday()
+    let s:currline = line(".")
+    call append(s:currline-1 , strftime("%Y-%m-%d"))
+endfunction
+:imap <leader>d mz:execute InputToday() `zA
 
+" exec current line
+"map <leader>e :.w !bash <cr>
+map <leader>e :exec '!'.getline('.') <cr>
 
 
 "--{{{-----some emacs emu.-insert mode only :-------

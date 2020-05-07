@@ -2,7 +2,6 @@
 call plug#begin('~/dotfiles/.vim/gitignored/plugged')
 
 " Make sure you use single quotes
-
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'keith/swift.vim', {'for': 'swift'}
 Plug 'nsf/gocode', {'for': ['go']}
@@ -15,10 +14,21 @@ Plug 'vim-scripts/dbext.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'thinca/vim-quickrun'
 
+
+Plug 'Chiel92/vim-autoformat'
+
 "Plug 'minibufexpl.vim'
 
 " Syntastic: Code linting errors
 Plug 'scrooloose/syntastic', {'for':['clojure']}
+Plug 'w0rp/ale', {'for':['py']}
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+
+Plug 'keith/swift.vim' , {'for': 'swift'}
+
 
 Plug 'Yggdroot/indentLine'
 " indentLine will overwrite  "concealcursor" and "conceallevel" with default value:
@@ -43,8 +53,18 @@ Plug 'sjl/badwolf'
 "
 Plug 'tpope/vim-commentary'
 
+Plug 'liuchengxu/graphviz.vim', { 'for': ['dot','hh'] }
+
+Plug '907th/vim-auto-save'
+let g:auto_save = 1
 
 
+let g:auto_save_presave_hook = 'call AbortForFiletype()'
+function! AbortForFiletype()
+  if &filetype == 'vimwiki' || &filetype == "hhtest"
+    let g:auto_save_abort = 1
+  endif
+endfunction
 
 " Initialize plugin system
 call plug#end()

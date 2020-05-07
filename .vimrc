@@ -44,6 +44,17 @@ let g:quickrun_config.markdown = {
 \ 'exec': '%c -output stdout %o %s %a',
 \ 'outputter': 'browser'
 \ }
+let g:quickrun_config.cmd = {
+\   'command': 'cmd',
+\   'exec': "%c ",
+\ }
+let g:quickrun_config.dot = {
+\ 'command': 'dot',
+\ 'exec': '%C -Tpng -O',
+\ 'outputter': 'browser'
+\ }
+
+
 let g:quickrun_no_default_key_mappings = 1
 let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
@@ -140,8 +151,8 @@ set autowrite		" Automatically save before commands like :next and :make
 set hidden             " Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes) in terminals
 
-set tabstop=4 
-set softtabstop=4 
+set tabstop=4
+set softtabstop=4
 "set expandtab  
 set shiftwidth=4
 set cindent
@@ -170,6 +181,7 @@ if has("win32") && has("gui_running")
     set gfn=Source\ Code\ Pro:h12
 elseif has('macunix') || has('gui_macvim')
 	set dir=~/
+	set guifont=Monaco:h14
 endif
 
 if version >= 603
@@ -180,5 +192,18 @@ syntax on
 filetype indent on
 " --- }}} ---
 set conceallevel=0  " Don't conceal JSON syntax 
+
+" PEP8
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+
+" temp
+augr class
+au!
+au bufreadpost,filereadpost *.class %!"d:/hhhome/devel/vimfiles/jad.exe" -noctor -ff -i -p %
+au bufreadpost,filereadpost *.class set readonly
+au bufreadpost,filereadpost *.class set ft=java
+au bufreadpost,filereadpost *.class normal gg=G
+au bufreadpost,filereadpost *.class set nomodified
+augr END
 
 " vim:fdm=marker:
