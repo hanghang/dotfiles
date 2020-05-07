@@ -169,7 +169,7 @@ if has("win32") && has("gui_running")
     set go=rmb 
     set gfn=Source\ Code\ Pro:h12
 elseif has('macunix') || has('gui_macvim')
-	set dir=~
+	set dir=~/
 endif
 
 if version >= 603

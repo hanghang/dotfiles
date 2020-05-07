@@ -1,0 +1,62 @@
+[user]
+	email = fw
+	name = fw
+[gui]
+    encoding = utf-8
+    fontdiff = -family 新宋体 -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+[alias]
+    a = add
+    au = add -u
+    br = branch
+    ci = commit
+    co = checkout
+    d = diff
+    dc = diff --cached
+    dcw = diff --cached -w
+    dw = diff -w
+    ft = fetch
+    pl = pull
+    ps = push
+    rb = rebase
+    rmt = remote
+    sh = stash
+    st = status
+    lol = log --pretty=oneline --graph
+    last = log -1 --stat
+    cp = cherry-pick
+    cl = clone
+    unstage = reset HEAD --
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative -15
+[core]
+	pager = less -FRX
+	excludesfile = ~/.gitignore
+    whitespace = cr-at-eol
+    editor = vim
+    filemode = false
+	autocrlf = input
+	safecrlf = warn
+	trustctime = false
+#	quotepath = false
+#	editor = emacs
+[commit]
+#	template = ~/.gitcommitmsg.txt
+    pager = less
+
+[http]
+    sslVerify = false
+[merge]
+    tool = vimdiff
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+[push]
+    default = matching
+[credential]
+    helper = cache --timeout=3600
+[mergetool]
+    keeptemporaries = false
+    keepbackups = false
+    prompt = false
+    trustexitcode = false
