@@ -23,7 +23,9 @@ if has('win32')
 	let wiki.path_html= 'D:/wiki_html/'
 	let wiki.auto_export= 1
 elseif has('macunix') || has('gui_macvim')
-	let wiki.path = '/Volumes/crypto/private/vimwiki'
+	let wiki.path = '~/mnt_crypto/private/vimwiki'
+	let wiki.path_html= '~/wiki_html/'
+	let wiki.auto_export= 1
 elseif has('unix')
 	"let wiki.path = '~/my_wiki/'
 endif

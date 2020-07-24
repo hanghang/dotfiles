@@ -101,6 +101,7 @@ map <F11> :runtime! syntax/2html.vim<cr>
 
 "<F12> - quick edit vimrc
 map <F12> :tabnew <cr>:e ~/dotfiles/.vimrc <cr>
+map <leader>rc :tabnew <cr>:e ~/dotfiles/.vimrc <cr>
 
 map <C-F11> :set encoding=utf8<cr>
 map <M-F11> :set encoding=default<cr>
