@@ -1,10 +1,10 @@
 if !has('win32unix')
 "---------------- plugin -----------------
-source ~/dotfiles/.vim/plug.vim
+source ~/dotfiles/vimfiles/plug.vim
 "---------------- plugin -----------------
 
 "---------------- keymap -----------------
-source ~/dotfiles/.vim/keymap.vim
+source ~/dotfiles/vimfiles/keymap.vim
 "---------------- keymap -----------------
 
 "--------------- playground --------------
@@ -92,7 +92,7 @@ let g:user_emmet_settings = {
 "autocmd BufWritePre *.go :Fmt
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
-source ~/dotfiles/.vim/gitignored/dbconf.vim
+source ~/dotfiles/vimfiles/gitignored/dbconf.vim
 " example
 " let g:dbext_default_profile = 'usual'
 " let g:dbext_default_profile_usual       = 'type=MYSQL:user=root:passwd=:host=localhost:dbname=test'
