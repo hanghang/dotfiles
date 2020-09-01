@@ -14,9 +14,9 @@ git clone git@github.com:hanghang/dotfiles.git
 # vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-mkdir -p dotfiles/.vim/gitignored/
+mkdir -p dotfiles/vimfiles/gitignored/
 
-touch ~/dotfiles/.vim/gitignored/dbconf.vim
+touch ~/dotfiles/vimfiles/gitignored/dbconf.vim
 
 if [ -f ~/.vimrc ]; then
 	echo "~/.vimrc already exists, please manually add 'source ~/dotfiles/.vimrc'"
