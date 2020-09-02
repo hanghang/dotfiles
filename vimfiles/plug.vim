@@ -1,5 +1,5 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/dotfiles/.vim/gitignored/plugged')
+call plug#begin('~/dotfiles/vimfiles/gitignored/plugged')
 
 " Make sure you use single quotes
 Plug 'fatih/vim-go', {'for': 'go'}

@@ -75,11 +75,11 @@ map <F8> :%s/^\(.*\)$/sql.append("\1 ");/g<cr>
 
 "<F10> 
 fu! SaveSess()
-    execute 'mksession! ~/dotfiles/.vim/gitignored/session.vim'
+    execute 'mksession! ~/dotfiles/vimfiles/gitignored/session.vim'
 endfunction
 
 fu! RestoreSess()
-execute 'so ~/dotfiles/.vim/gitignored/session.vim'
+execute 'so ~/dotfiles/vimfiles/gitignored/session.vim'
 if bufexists(1)
     for l in range(1, bufnr('$'))
         if bufwinnr(l) == -1
@@ -101,8 +101,8 @@ map <C-F10> :call SaveSess() <CR>
 map <F11> :runtime! syntax/2html.vim<cr>
 
 "<F12> - quick edit vimrc
-map <F12> :tabnew <cr>:e ~/dotfiles/.vimrc <cr>
-map <leader>rc :tabnew <cr>:e ~/dotfiles/.vimrc <cr>
+map <F12> :tabnew <cr>:e ~/dotfiles/vimrc <cr>
+map <leader>rc :tabnew <cr>:e ~/dotfiles/vimrc <cr>
 
 map <C-F11> :set encoding=utf8<cr>
 map <M-F11> :set encoding=default<cr>
@@ -125,7 +125,6 @@ map<M-right> :tabn<CR>
 
 
 nmap <leader>l :set list!<CR>
-nmap <leader>w :set wrap!<CR>
 function! InputToday()
     let s:currline = line(".")
     call append(s:currline-1 , strftime("%Y-%m-%d"))
