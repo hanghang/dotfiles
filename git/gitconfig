@@ -1,6 +1,6 @@
 [user]
-	email = fw
-	name = fw
+	email = hh@fw
+	name = Hang Hang
 [gui]
     encoding = utf-8
     fontdiff = -family 新宋体 -size 11 -weight normal -slant roman -underline 0 -overstrike 0
@@ -29,7 +29,7 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative -15
 [core]
 	pager = less -FRX
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/hh/.gitignore
     whitespace = cr-at-eol
     editor = vim
     filemode = false
@@ -41,6 +41,7 @@
 [commit]
 #	template = ~/.gitcommitmsg.txt
     pager = less
+	template = /Users/hh/.stCommitMsg
 
 [http]
     sslVerify = false
@@ -60,3 +61,9 @@
     keepbackups = false
     prompt = false
     trustexitcode = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

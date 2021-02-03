@@ -4,6 +4,14 @@ if [[ -d "/Users/hh/go/bin" ]]; then
 	export PATH=$PATH:/Users/hh/go/bin
 fi
 
+if [[ -d "/Users/hh/Library/Android/sdk/platform-tools" ]]; then
+	export PATH=$PATH:/Users/hh/Library/Android/sdk/platform-tools
+fi
+
+if [[ -d "/Users/hh/Library/Python/3.8/bin" ]]; then
+	export PATH=$PATH:/Users/hh/Library/Python/3.8/bin
+fi
+
 if [[ -d "/Applications/MacVim.app/Contents/bin" ]]; then
 	export PATH=$PATH:/Applications/MacVim.app/Contents/bin
 fi
