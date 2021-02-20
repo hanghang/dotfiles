@@ -50,8 +50,8 @@ alias ll='ls -lhrt'
 alias chrome="open -a 'Google Chrome'"
 alias firefox="open -a 'Firefox'"
 
-if [[ -e ~/dotfiles/shell/gitignored/profile_ssh ]]; then
-	source ~/dotfiles/shell/gitignored/profile_ssh
+if [[ -e ~/dotfiles/gitignored/shell/profile_ssh ]]; then
+	source ~/dotfiles/gitignored/shell/profile_ssh
 fi
 
 # zsh custom

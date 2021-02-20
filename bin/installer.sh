@@ -14,11 +14,11 @@ git clone git@github.com:hanghang/dotfiles.git
 # vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-mkdir -p dotfiles/vimfiles/gitignored/
-mkdir -p dotfiles/shell/gitignored/
+mkdir -p dotfiles/gitignored/vimfiles/
+mkdir -p dotfiles/gitignored/shell/
 
-touch ~/dotfiles/vimfiles/gitignored/dbconf.vim
-touch ~/dotfiles/shell/gitignored/ssh
+touch ~/dotfiles/gitignored/vimfiles/dbconf.vim
+touch ~/dotfiles/gitignored/shell/ssh
 
 # vim
 if [ -f ~/.vimrc ]; then

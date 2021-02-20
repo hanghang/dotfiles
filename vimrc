@@ -92,7 +92,7 @@ let g:user_emmet_settings = {
 "autocmd BufWritePre *.go :Fmt
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
-source ~/dotfiles/vimfiles/gitignored/dbconf.vim
+source ~/dotfiles/gitignored/vimfiles/dbconf.vim
 " example
 " let g:dbext_default_profile = 'usual'
 " let g:dbext_default_profile_usual       = 'type=MYSQL:user=root:passwd=:host=localhost:dbname=test'
