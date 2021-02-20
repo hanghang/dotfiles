@@ -21,14 +21,13 @@ if has('win32')
 	"let g:vimwiki_list = [{'path': 'U:/private/vimwiki/', 'path_html': 'D:/wiki_html/', 'auto_export': 1}]
 	let wiki.path = 'U:/private/vimwiki/'
 	let wiki.path_html= 'D:/wiki_html/'
-	let wiki.auto_export= 1
 elseif has('macunix') || has('gui_macvim')
 	let wiki.path = '~/mnt_crypto/private/vimwiki'
 	let wiki.path_html= '~/wiki_html/'
-	let wiki.auto_export= 1
 elseif has('unix')
 	"let wiki.path = '~/my_wiki/'
 endif
+let wiki.auto_export= 0
 let g:vimwiki_list = [wiki]
 
 let g:quickrun_config = {
