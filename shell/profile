@@ -20,6 +20,10 @@ if [[ -d /Applications/Postgres.app/Contents/Versions/latest/bin ]]; then
 	export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 fi
 
+export PATH=$PATH:/Users/hh/Developer/flutter/bin
+export PATH=$PATH:/Users/hh/Developer/flutter/binasdfasdf
+
+
 
 jdk() {
 	version=$1
@@ -54,6 +58,22 @@ if [[ -e ~/dotfiles/gitignored/shell/profile_ssh ]]; then
 	source ~/dotfiles/gitignored/shell/profile_ssh
 fi
 
+tmux_init()
+{
+    tmux new-session -s "h" -d -n "local"
+#    tmux new-window -n "other"
+#    tmux split-window -h
+#    tmux split-window -v "top"
+    tmux -2 attach-session -d
+}
+
+# 判断是否已有开启的tmux会话，没有则开启
+if which tmux 2>&1 >/dev/null; then
+   test -z "$TMUX" && (tmux attach || tmux_init)
+fi
+
 # zsh custom
 ZSH_THEME="ys"
 plugins=(git)
+# git clone https://github.com/jeffreytse/zsh-vi-mode  $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
+plugins+=(zsh-vi-mode)
