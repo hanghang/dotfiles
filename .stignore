@@ -1,0 +1,3 @@
+(?d).DS_Store
+(?d).git
+(?d)gitignored/vimfiles/plugged/*

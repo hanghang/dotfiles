@@ -68,9 +68,9 @@ tmux_init()
 }
 
 # 判断是否已有开启的tmux会话，没有则开启
-if which tmux 2>&1 >/dev/null; then
-   test -z "$TMUX" && (tmux attach || tmux_init)
-fi
+#if which tmux 2>&1 >/dev/null; then
+#   test -z "$TMUX" && (tmux attach || tmux_init)
+#fi
 
 # zsh custom
 ZSH_THEME="ys"
