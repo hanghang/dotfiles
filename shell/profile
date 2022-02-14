@@ -21,10 +21,11 @@ if [[ -d /Applications/Postgres.app/Contents/Versions/latest/bin ]]; then
 fi
 
 export PATH=$PATH:/Users/hh/Developer/flutter/bin
-export PATH=$PATH:/Users/hh/Developer/flutter/binasdfasdf
+export PATH=$PATH:/Users/hh/Developer/node/bin
 
 
 
+### java ###
 jdk() {
 	version=$1
 	if [[ -e "/usr/libexec/java_home" ]]; then
@@ -32,6 +33,15 @@ jdk() {
 	fi
 	java -version
 }
+if [[ -e "/usr/libexec/java_home" ]]; then
+	export JAVA_HOME=$(/usr/libexec/java_home -v 11);
+fi
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.3.6528147
+
+
+
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=5000
@@ -53,18 +63,25 @@ setopt HIST_BEEP
 alias ll='ls -lhrt'
 alias chrome="open -a 'Google Chrome'"
 alias firefox="open -a 'Firefox'"
+alias du20='du -sh * | sort -hr | head -n 20'
+alias cleanMacPollution='find . -name ".DS_Store" -exec rm -v {} \;'
+alias dup_check_fast='find . -type f -size +100M -printf "%f %k KB\n" | sort | uniq -dD'
+alias dup_check_deep='find . -type f -size +100M -exec md5sum {} + | sort | uniq -w32 -dD'
+
+
+ 
 
 if [[ -e ~/dotfiles/gitignored/shell/profile_ssh ]]; then
-	source ~/dotfiles/gitignored/shell/profile_ssh
+source ~/dotfiles/gitignored/shell/profile_ssh
 fi
 
 tmux_init()
 {
-    tmux new-session -s "h" -d -n "local"
+	tmux new-session -s "h" -d -n "local"
 #    tmux new-window -n "other"
 #    tmux split-window -h
 #    tmux split-window -v "top"
-    tmux -2 attach-session -d
+		tmux -2 attach-session -d
 }
 
 # 判断是否已有开启的tmux会话，没有则开启
