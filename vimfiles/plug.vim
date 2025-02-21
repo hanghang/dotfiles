@@ -2,8 +2,8 @@
 call plug#begin('~/dotfiles/gitignored/vimfiles/plugged')
 
 " Make sure you use single quotes
-Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'keith/swift.vim', {'for': 'swift'}
+Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'nsf/gocode', {'for': ['go']}
 Plug 'kien/ctrlp.vim'			" fast search 
 Plug 'Shougo/vimshell'
@@ -13,10 +13,13 @@ Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/dbext.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'thinca/vim-quickrun'
-
-
+Plug 'wannesm/wmgraphviz.vim', {'for' :['dot']}
+Plug 'aklt/plantuml-syntax',   {'for' :['puml','plantuml', 'uml', 'pu', 'hhuml']}
 Plug 'Chiel92/vim-autoformat'
+Plug 'easymotion/vim-easymotion'
+nmap <Space> <Plug>(easymotion-overwin-w)
 
+"Plug 'SirVer/ultisnips'
 "Plug 'minibufexpl.vim'
 
 " Syntastic: Code linting errors
@@ -52,6 +55,8 @@ Plug 'sjl/badwolf'
 "Plug 'kshenoy/vim-signature' "Plugin to toggle, display and navigate marks
 "
 Plug 'tpope/vim-commentary'
+
+"Plug 'Exafunction/codeium.vim', {'for': ['py','dart','c','go'] }
 
 Plug 'liuchengxu/graphviz.vim', { 'for': ['dot','hh'] }
 

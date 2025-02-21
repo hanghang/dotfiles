@@ -22,7 +22,8 @@ if has('win32')
 	let wiki.path = 'U:/private/vimwiki/'
 	let wiki.path_html= 'D:/wiki_html/'
 elseif has('macunix') || has('gui_macvim')
-	let wiki.path = '~/mnt_crypto/private/vimwiki'
+	"let wiki.path = '~/mnt_crypto/private/vimwiki'
+	let wiki.path = '/Volumes/crypto/private/vimwiki'
 	let wiki.path_html= '~/wiki_html/'
 elseif has('unix')
 	"let wiki.path = '~/my_wiki/'
@@ -42,16 +43,28 @@ let g:quickrun_config.vimwiki = {
 \ }
 let g:quickrun_config.markdown = {
 \ 'command': 'md2min',
-\ 'exec': '%c -output stdout %o %s %a',
+\ 'exec': '$c -output stdout %o %s %a',
 \ 'outputter': 'browser'
 \ }
 let g:quickrun_config.cmd = {
 \   'command': 'cmd',
 \   'exec': "%c ",
 \ }
-let g:quickrun_config.dot = {
-\ 'command': 'dot',
-\ 'exec': '%C -Tpng -O',
+if has('win32')
+	let g:quickrun_config.dot = {
+	\ 'command': 'dot',
+	\ 'exec': '%C -Tpng -O',
+	\ 'outputter': 'browser'
+	\ }
+elseif has('macunix') || has('gui_macvim')
+	let g:quickrun_config.dot = {
+	\ 'command': 'dot',
+	\ 'exec': ['%C -Tpng -O', 'open %s.png'],
+	\ }
+elseif has('unix')
+endif
+let g:quickrun_config.plantuml = {
+\ 'exec': ['cat %s | java -jar $HOME/dotfiles/lib/java/plantuml.jar -tsvg -p %o %s %a'],
 \ 'outputter': 'browser'
 \ }
 
@@ -125,6 +138,7 @@ set scrolloff=1
 set sidescrolloff=5
 set autoread
 set history=500
+set fdm=marker
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
@@ -137,6 +151,7 @@ colo evening
 "colo Tomorrow-Night
 set magic
 set number		" Line number
+set relativenumber	" Line number
 set foldenable		" auto fold code
 set hlsearch		" highlite search
 set ambiwidth=double 

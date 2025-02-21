@@ -1,5 +1,9 @@
 gitignored
+*.nogit.*
 .DS_Store
 */.DS_Store
 *~
 *.swp
+tester.py
+pytest_report.html
+venv

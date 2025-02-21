@@ -6,7 +6,6 @@ fi
 
 if [[ -d "/Users/hh/Library/Android/sdk/platform-tools" ]]; then
 	export PATH=$PATH:/Users/hh/Library/Android/sdk/platform-tools
-fi
 
 if [[ -d "/Users/hh/Library/Python/3.8/bin" ]]; then
 	export PATH=$PATH:/Users/hh/Library/Python/3.8/bin
@@ -20,26 +19,25 @@ if [[ -d /Applications/Postgres.app/Contents/Versions/latest/bin ]]; then
 	export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 fi
 
-export PATH=$PATH:/Users/hh/Developer/flutter/bin
-export PATH=$PATH:/Users/hh/Developer/node/bin
+. /usr/local/opt/asdf/libexec/asdf.sh
 
+export PATH="$PATH":"$HOME/Developer/flutter/bin:$HOME/.pub-cache/bin:$HOME/Developer/flutter/.pub-cache/bin"
+export PATH="$PATH":"$HOME/Developer/node/bin"
+export PATH=$PATH:$HOME/dotfiles/bin
 
 
 ### java ###
 jdk() {
 	version=$1
 	if [[ -e "/usr/libexec/java_home" ]]; then
-		export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+		echo export JAVA_HOME=$(/usr/libexec/java_home -v "$version");
 	fi
 	java -version
 }
-if [[ -e "/usr/libexec/java_home" ]]; then
-	export JAVA_HOME=$(/usr/libexec/java_home -v 11);
-fi
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.3.6528147
-
+export HOMEBREW_AUTO_UPDATE_SECS=864000 
 
 
 
@@ -64,10 +62,26 @@ alias ll='ls -lhrt'
 alias chrome="open -a 'Google Chrome'"
 alias firefox="open -a 'Firefox'"
 alias du20='du -sh * | sort -hr | head -n 20'
+alias ducks='du -cksh * | sort -hr | head -n 15'
+alias ssntl='ss -ntlp4 | cat -v'
 alias cleanMacPollution='find . -name ".DS_Store" -exec rm -v {} \;'
 alias dup_check_fast='find . -type f -size +100M -printf "%f %k KB\n" | sort | uniq -dD'
 alias dup_check_deep='find . -type f -size +100M -exec md5sum {} + | sort | uniq -w32 -dD'
+alias cleanGitReflogs="git reflog expire --expire=now --all && git gc --prune=now --aggressive"
+alias nasync="rsync -avz -e 'ssh -p 60023'"
 
+#alias getmp3='youtube-dl -f "bestaudio" --continue --no-overwrites --ignore-errors --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" '
+alias getmp3='youtubedr download -q 140 '
+alias curl='curlie'
+alias countFileBySubdir='find . -maxdepth 1 -mindepth 1 -type d | while read dir; do   printf "%-25.25s : " "$dir";   find "$dir" | wc -l; done'
+
+alias dps='docker ps'
+alias dkc='docker-compose'
+alias dcup='docker compose up -d'
+alias dcdown='docker compose down'
+alias dclogs='docker compose logs -f'
+alias dctail='docker compose logs -f --tail="200"'
+alias dcre='docker compose restart'
 
  
 

@@ -1,5 +1,9 @@
 " keymap
-let mapleader = ','
+let mapleader = ",,"
+let maplocalleader = " "
+
+cmap <C-A> <Home>
+
  " Don't use Ex mode, use Q for formatting
 map Q gq
 "<F1> - spell check
@@ -124,7 +128,6 @@ map<M-right> :tabn<CR>
 "noremap  zz		:up<CR>
 
 
-nmap <leader>l :set list!<CR>
 function! InputToday()
     let s:currline = line(".")
     call append(s:currline-1 , strftime("%Y-%m-%d"))
